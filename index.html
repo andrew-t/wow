@@ -22,6 +22,7 @@
 		span.innerHTML = '';
 		span.appendChild(document.createTextNode(config.word));
 		span.style.letterSpacing = `${config.wowness}vw`;
+		setTimeout(() => span.style.width = `${span.clientWidth - (config.wowness - 50) * window.innerWidth / 100}px`);
 		window.addEventListener('scroll', () => {
 			document.getElementById('scroller').classList.add('hidden');
 		}, { once: true, passive: true });
@@ -39,8 +40,10 @@
 			position: absolute;
 			top: calc(50vh - 10vmin);
 			left: calc(50vw - 10vmin);
-			margin: 0;
 			padding: 0;
+			margin: 0;
+			text-align: center;
+			overflow: hidden;
 		}
 		#scroller {
 			position: fixed;
